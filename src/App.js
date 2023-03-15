@@ -60,7 +60,9 @@ function App() {
                             <Container>
                                 <Row className='row'>
                                     {art.map((a, i) => {
-                                        return <MidArt art={art[i]}></MidArt>;
+                                        return (
+                                            <MidArt art={art[i]} i={i}></MidArt>
+                                        );
                                     })}
                                 </Row>
                             </Container>
@@ -110,7 +112,15 @@ function App() {
 function MidArt(props) {
     return (
         <Col className='col-top-1'>
-            <img src={props.art.src} width='80%' height='65%' />
+            <img
+                src={
+                    'https://github.com/WAMT/Shop_React/blob/main/src/img/' +
+                    props.i +
+                    '.jpg?raw=true'
+                }
+                width='80%'
+                height='65%'
+            />
             <h4>{props.art.title}</h4>
             <p>{props.art.content}</p>
             <p>{props.art.id}</p>
