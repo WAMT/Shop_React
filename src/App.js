@@ -8,7 +8,7 @@ import Detail from './Detail.js';
 
 function App() {
     let [art, setArt] = useState(data);
-
+    let [btn, setBtn] = useState(0);
     let navigate = useNavigate();
 
     return (
@@ -92,16 +92,32 @@ function App() {
             </Routes>
             <button
                 onClick={() => {
-                    axios
-                        .get('https://codingapple1.github.io/shop/data2.json')
-                        .then((result) => {
-                            let copy = [...art, ...result.data];
-                            setArt(copy);
-                            // setArt(art.concat(result.data));
-                        })
-                        .catch(() => {
-                            console.log('error');
-                        });
+                    btn == 0
+                        ? axios
+                              .get(
+                                  'https://codingapple1.github.io/shop/data2.json'
+                              )
+                              .then((result) => {
+                                  setBtn(btn + 1);
+                                  let copy = [...art, { ...result.data }];
+                                  setArt(copy);
+                                  // setArt(art.concat(result.data));
+                              })
+                              .catch(() => {
+                                  console.log('error');
+                              })
+                        : axios
+                              .get(
+                                  'https://codingapple1.github.io/shop/data3.json'
+                              )
+                              .then((result) => {
+                                  let copy = [...art, ...result.data];
+                                  setArt(copy);
+                                  // setArt(art.concat(result.data));
+                              })
+                              .catch(() => {
+                                  console.log('error');
+                              });
                 }}
             >
                 버튼
