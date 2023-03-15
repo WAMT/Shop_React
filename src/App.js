@@ -99,7 +99,7 @@ function App() {
                               )
                               .then((result) => {
                                   setBtn(btn + 1);
-                                  let copy = [...art, { ...result.data }];
+                                  let copy = [...art, ...result.data];
                                   setArt(copy);
                                   // setArt(art.concat(result.data));
                               })
