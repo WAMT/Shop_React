@@ -117,15 +117,7 @@ function MidArt(props) {
         </Col>
     );
 }
-function MidArt2(props) {
-    return (
-        <Col className='col-top-1'>
-            <h4>{props.art2.title}</h4>
-            <p>{props.art2.content}</p>
-            <p>{props.art2.id}</p>
-        </Col>
-    );
-}
+
 function About() {
     return (
         <div>
